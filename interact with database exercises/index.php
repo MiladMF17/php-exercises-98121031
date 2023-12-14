@@ -2,10 +2,16 @@
 require_once('G:\interact_with_database_exercises\functions.php');
 require_once('G:\interact_with_database_exercises\MySQLDB.php');
 $db = new MySQLDB();
-require_once('G:\interact_with_database_exercises\profs.php');
-foreach($profs as $prof)
+require_once('G:\interact_with_database_exercises\lessons.php');
+foreach($lessons as $lesson)
 {
-    $db->insert('profs',$prof);
+    $data = [
+        'title' => $lesson['title'],
+        'vahed' => $lesson['vahed'],
+        'term' => $lesson['term'],
+        'program' => json_encode($lesson['program']),
+    ];
+    $db->insert('lessons', $data);
 }
 $number_of_hours = 4; 
 ?>
@@ -84,4 +90,8 @@ $number_of_hours = 4;
 
 
 
-<!--Student_Number : 98121031 -->
+
+
+
+
+<!--Student_number : 98121031 -->
