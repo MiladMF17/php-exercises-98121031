@@ -2,17 +2,8 @@
 require_once('G:\interact_with_database_exercises\functions.php');
 require_once('G:\interact_with_database_exercises\MySQLDB.php');
 $db = new MySQLDB();
-require_once('G:\interact_with_database_exercises\lessons.php');
-foreach($lessons as $lesson)
-{
-    $data = [
-        'title' => $lesson['title'],
-        'vahed' => $lesson['vahed'],
-        'term' => $lesson['term'],
-        'program' => json_encode($lesson['program']),
-    ];
-    $db->insert('lessons', $data);
-}
+$lessons = $db->select('lessons');
+$profs = $db->select('profs');
 $number_of_hours = 4; 
 ?>
 <!DOCTYPE html>
@@ -30,9 +21,7 @@ $number_of_hours = 4;
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     </head>
     <?php
-    require('./lessons.php');
-    require('./profs.php');
-    require('./relations.php');
+    require('G:\interact_with_database_exercises\relations.php');
     ?>
     <body dir="rtl">
         <h1>برنامه ترم اول سال تحصیلی 401-402 مهندسی نرم افزار</h1>
@@ -85,13 +74,4 @@ $number_of_hours = 4;
 </html>
 
 
-
-
-
-
-
-
-
-
-
-<!--Student_number : 98121031 -->
+<!-- Student_NO : 98121031 -->

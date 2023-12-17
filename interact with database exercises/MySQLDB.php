@@ -100,6 +100,7 @@ class MySQLDB{
 //     'name' => 'John Doe',
 //     'email' => 'john@example.com'
 // ];
+//  (Student_NO : 98121031)
 // $db->insert('users', $data);
 
 // // Select all rows from the table
